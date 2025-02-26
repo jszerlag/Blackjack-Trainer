@@ -170,9 +170,6 @@ public class BlackJack {
         buttonPanel.add(redealButton);
         frame.add(buttonPanel, BorderLayout.SOUTH);
 
-        //debug
-        System.out.println("Dealers hand! " + dealerHand);
-
         //button implimentations
         hitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -318,9 +315,7 @@ public class BlackJack {
     }
 
     public char hitOrStand() {
-        System.out.println("playerAceCount: "+ playerAceCount + " playerSum: " + playerSum + " dealerUpCard: " + dealerHand.get(0).getValue());
         if(playerAceCount > 0 && playerSum < 21) { //"Soft" hands containing ace and less than 21
-            System.out.println("Entered soft hands");
             if (playerSum >= 19)
                 return 'S';
             else if (playerSum <= 17)
@@ -330,7 +325,6 @@ public class BlackJack {
             return 'S';
         }
         else { //"Hard" hands
-            System.out.println("Entered hard hands");
             if (getReducedPlayerSum() <= 11) {
                 System.out.println("Sum < 11");
                 return 'H';
